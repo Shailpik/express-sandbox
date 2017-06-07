@@ -11,7 +11,7 @@ exports.userGet = function (req, res) {
     res.json(results);
   }).catch(function (e) {
     console.error(e);
-    res.status(400).json({ error: 'Bad input on get', code: 400  });
+    res.status(400).json({ error: 'Bad input on get request', code: 400  });
   });
 };
 
