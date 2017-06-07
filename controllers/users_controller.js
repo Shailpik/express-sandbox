@@ -36,7 +36,6 @@ exports.userGetId = function (req, res) {
 
 exports.userPost =  function (req, res) {
   console.log(req.body);
-  req.body.age += 2 ;
   db.User.create(req.body).then(function (results) {
     console.log(results);
     res.json(results);
@@ -57,7 +56,7 @@ exports.userUpdate =  function (req, res) {
   }).then(function (results) {
     if (results[0] > 0) {
       console.log(results);
-      res.json({ message: 'Updated user id ' + req.params.id });
+      res.json(req.body);
     }    else {
       res.status(404).json({ error: 'Invalid user id ' + req.params.id, code: 404 });
     }
